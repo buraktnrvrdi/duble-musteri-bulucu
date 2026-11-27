@@ -1,0 +1,19 @@
+{
+  "name": "duble-musteri-bulucu-repo",
+  "private": true,
+  "version": "1.0.0",
+  "description": "duble Müşteri Bulucu: açık veri kaynaklarından işletme bulan masaüstü uygulaması (paketlenmiş uygulamadan çıkarılan kaynak + otomasyon araçları)",
+  "license": "MIT",
+  "scripts": {
+    "postinstall": "npm --prefix app install --no-audit --no-fund && electron-rebuild -m app -f -w better-sqlite3",
+    "start": "electron app",
+    "screenshots": "node tools/screenshots/capture.mjs",
+    "mock": "node tools/screenshots/mock-server.mjs",
+    "pack:mac": "electron-packager app \"Duble Musteri Bulucu\" --platform=darwin --arch=arm64 --icon=app/icon.icns --out=release --overwrite"
+  },
+  "devDependencies": {
+    "@electron/rebuild": "^3.7.0",
+    "@electron/packager": "^18.3.0",
+    "electron": "45.3.3"
+  }
+}
